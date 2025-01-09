@@ -6,7 +6,11 @@ const jwt = require("jsonwebtoken");
 const cors = require("cors");
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001; // Render usará a variável PORT automaticamente
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
+
 const SECRET = "secret_key"; // Use uma chave mais segura em produção
 
 app.use(bodyParser.json());
